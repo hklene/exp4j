@@ -74,6 +74,13 @@ public class Expression {
         return this;
     }
 
+    /**
+     * @return The Tokens of this Expression
+     */
+    public Token[] getTokens() {
+    	return tokens;
+    }
+
     private void checkVariableName(String name) {
         if (this.userFunctionNames.contains(name) || Functions.getBuiltinFunction(name) != null) {
             throw new IllegalArgumentException("The variable name '" + name + "' is invalid. Since there exists a function with the same name");
