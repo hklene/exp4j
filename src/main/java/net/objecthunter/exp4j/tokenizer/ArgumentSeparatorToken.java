@@ -25,4 +25,19 @@ class ArgumentSeparatorToken extends Token{
     ArgumentSeparatorToken() {
         super(Token.TOKEN_SEPARATOR);
     }
+
+	@Override
+	public int hashCode() {
+		//All Instances of this Class are identical.
+		//Just use the Name as hashCode
+		return this.getClass().getCanonicalName().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		//All Instances of this Class are identical.
+		return (obj instanceof ArgumentSeparatorToken);
+	}
+
+
 }

@@ -43,4 +43,22 @@ public class VariableToken extends Token {
         return String.format("%s-Variable", getName());
     }
 
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean result = false;
+
+		if(obj instanceof VariableToken) {
+			VariableToken other = (VariableToken) obj;
+			if(other.getName().equals(name)) {
+				result = true;
+			}
+		}
+		return result;
+	}
+
 }

@@ -27,4 +27,22 @@ public class FunctionToken extends Token{
     public Function getFunction() {
         return function;
     }
+
+	@Override
+	public int hashCode() {
+		return function.getName().hashCode() * 31 + function.getNumArguments();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean result = false;
+
+		if (obj instanceof FunctionToken) {
+			FunctionToken other = (FunctionToken) obj;
+			if(other.function.getName().equals(function.getName())
+					&& other.function.getNumArguments() == (function.getNumArguments()))
+				result = true;
+		}
+		return result;
+	}
 }

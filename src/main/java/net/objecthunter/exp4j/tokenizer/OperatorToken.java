@@ -1,4 +1,4 @@
-/* 
+/*
 * Copyright 2014 Frank Asseg
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,7 +11,7 @@
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
-* limitations under the License. 
+* limitations under the License.
 */
 package net.objecthunter.exp4j.tokenizer;
 
@@ -42,4 +42,24 @@ public class OperatorToken extends Token{
     public Operator getOperator() {
         return operator;
     }
+
+	@Override
+	public int hashCode() {
+		return operator.getSymbol().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean result = false;
+
+		if(obj instanceof OperatorToken) {
+			OperatorToken other = (OperatorToken) obj;
+			if(other.getOperator().getSymbol().equals(operator.getSymbol())
+					&& other.getOperator().isLeftAssociative() == operator.isLeftAssociative()
+					&& other.getOperator().getNumOperands() == operator.getNumOperands()) {
+				result = true;
+			}
+		}
+		return result;
+	}
 }

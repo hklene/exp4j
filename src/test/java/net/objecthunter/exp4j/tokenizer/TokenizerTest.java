@@ -593,5 +593,5 @@ public class TokenizerTest {
 
         assertFalse(tokenizer.hasNext());
     }
-
+    
 }
