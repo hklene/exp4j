@@ -1,4 +1,4 @@
-/* 
+/*
 * Copyright 2015 Holger Klene
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,7 +11,7 @@
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
-* limitations under the License. 
+* limitations under the License.
 */
 package net.objecthunter.exp4j;
 
@@ -35,7 +35,7 @@ public class TypeUtil {
         final boolean hex = v.startsWith("0x");
         try {
             if (hex) {
-                return Long.valueOf(value.substring(2), 16);
+                return (int) Long.parseLong(value.substring(2), 16);
             }
             return Long.valueOf(value);
         } catch (NumberFormatException nfe) {
