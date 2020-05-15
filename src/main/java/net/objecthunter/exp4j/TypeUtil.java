@@ -35,7 +35,7 @@ public class TypeUtil {
         final boolean hex = v.startsWith("0x");
         try {
             if (hex) {
-                return (int) Long.parseLong(value.substring(2), 16);
+                return Integer.toUnsignedLong((int) Long.parseLong(value.substring(2), 16));
             }
             return Long.valueOf(value);
         } catch (NumberFormatException nfe) {
